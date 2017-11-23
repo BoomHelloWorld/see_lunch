@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="lunch_order_view_form_inherit" model="ir.ui.view">
+        <field name="name">lunch.order.form.inherit</field>
+        <field name="model">lunch.order</field>
+        <field name="inherit_id" ref="lunch.lunch_order_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_lunch_order_line_favorite)d" type="action" string="Favorite Menu" />
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>
