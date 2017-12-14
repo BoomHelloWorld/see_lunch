@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_lunch_order_line_favorite" model="ir.ui.view">
+              <field name="name">view.lunch.order.line.favorite</field>
+              <field name="model">lunch.order.line.favorite</field>
+              <field name="arch" type="xml">
+                <form string="favorite food">
+                    <group string="Select your favorite food">
+                        <field name="menu" widget="many2many_checkboxes"/>
+                    </group>
+                    <footer>
+                        <button name="favorite_pick" string="order"  type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+              </field>
+        </record>
+
+        <record id="action_lunch_order_line_favorite" model="ir.actions.act_window">
+            <field name="name">Choose your favorite menu</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lunch.order.line.favorite</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_lunch_order_line_favorite"/>
+            <field name="context">{'record_id' : active_id}</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>
