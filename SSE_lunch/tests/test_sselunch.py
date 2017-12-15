@@ -10,6 +10,7 @@ class test_sseLunch(common.TransactionCase):
         super(test_sseLunch, self).setUp()
 
         self.lunchModule = self.env['lunch.order.line.favorite']
+        self.lunchMainModule = self.env['lunch.order']
 
         self.demo_user = self.env['res.users'].search([('name', '=', 'Demo User')])
         
@@ -55,17 +56,90 @@ class test_sseLunch(common.TransactionCase):
             })
         
 
-    def test_00_sse_lunch_order(self):
-        self.order_one = self.new_id_order_line1
-        self.order_one.order()
-        self.order_two = self.new_id_order_line2
-        self.order_two.order()
-        self.order_three = self.new_id_order_line3
-        self.order_three.order()
+    def order1(self):
+        self.lunchMainModule.create({
+            'product_id': self.env['lunch.product'].search([('name', '=', "steak")]).id ,
+            'order_id': self.new_id_order.id})
+        self.lunchMainModule.order()
 
-    def test_01_sse_lunch_order(self):
-        self.test_00_sse_lunch_order()
+    def order2(self):
+        self.lunchMainModule.create({
+            'product_id': self.env['lunch.product'].search([('name', '=', "chickenWing")]).id ,
+            'order_id': self.new_id_order.id})
+        self.lunchMainModule.order()
+
+    def order3(self):
+        self.lunchMainModule.create({
+            'product_id': self.env['lunch.product'].search([('name', '=', "pasta")]).id ,
+            'order_id': self.new_id_order.id})
+        self.lunchMainModule.order()
+
+    def order4(self):
+        self.lunchMainModule.create({
+            'product_id': self.env['lunch.product'].search([('name', '=', "chickenLeg")]).id ,
+            'order_id': self.new_id_order.id})
+        self.lunchMainModule.order()
+
+
+
+    def test_00_sse_lunch_order(self):
+        self.lunchMainModule.create({
+            'product_id': self.env['lunch.product'].search([('name', '=', "chickenWing")]).id ,
+            'order_id': self.new_id_order.id})
+        self.lunchMainModule.order()
+
+    def test_11_sse_lunch_order(self):
+        self.order1()
         favoriteMenu = self.lunchModule.favorite_menus();
-        print(favoriteMenu);
+        print(favoriteMenu)
+
+    def test_12_sse_lunch_order(self):
+        self.order1()
+        self.order1()
+        self.order1()
+        self.order1()
+
+        self.order2()
+        self.order2()
+        self.order2()
+
+        self.order3()
+
+        favoriteMenu = self.lunchModule.favorite_menus();
+        print(favoriteMenu)
+
+    def test_13_sse_lunch_order(self):
+        self.order1()
+        self.order1()
+        self.order1()
+        self.order1()
+
+        self.order2()
+        self.order2()
+        self.order2()
+
+        self.order3()
+
+        self.order4()
+        self.order4()
+
+        favoriteMenu = self.lunchModule.favorite_menus();
+        print(favoriteMenu)
+
+    def test_14_sse_lunch_order(self):
+        self.order1()
+        self.order1()
+
+        self.order2()
+        self.order2()
+
+        self.order3()
+        self.order3()
+
+        self.order4()
+        self.order4()
+
+        favoriteMenu = self.lunchModule.favorite_menus();
+        print(favoriteMenu)
 
 
