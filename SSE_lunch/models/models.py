@@ -16,6 +16,7 @@ class LunchOrderLineSendEmail(models.Model):
 
         
     @api.one
+    @override
     def order(self):
         """
         confirm one or more order line, update order status and create new cashmove
