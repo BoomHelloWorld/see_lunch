@@ -6,8 +6,10 @@
         Extension for Lunch module for make favorite order and send email""",
 
     'description': """
-        Extension for Lunch module for make favorite order and send email 
-        SSE project at TGGS KMUTNB Bangkok Thailand
+        The features of Improvement for Lunch Order module is an extension of Lunch Order module. There are two major improvements:
+        1. Send emails to vendors after every order line, enabling users to communicate their orders to vendors. This improvement is based on the existing feature to confirm order lines.
+        2. Select order lines from favourite menu, allowing users to create quickly an order according to their most frequent order lines. This improvement is based on the existing feature to add order lines to a new order.
+        user guide : https://github.com/BoomHelloWorld/sse_lunch2017/blob/master/Documentation/05-User-Guide.pdf
     """,
 
     'author': "Thu Nguyen and Jirakit Paitoonnaramit",
