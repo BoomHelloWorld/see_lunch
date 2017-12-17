@@ -1,0 +1,17 @@
+"id","user_signature","model_id/id","attachment_ids/id","auto_delete","body_html","email_cc","create_uid/id","create_date","null_value","use_default_to","model_object_field/id","email_from","lang","write_uid/id","write_date","name","report_template/id","mail_server_id/id","copyvalue","reply_to","report_name","scheduled_date","sub_model_object_field/id","subject","email_to","partner_to"
+"__export__.mail_template_14","False","lunch.model_lunch_order_line","","False","<p style=""margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"">Dear ${object.supplier.name}&nbsp;</p><p style=""margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"">I would like to make one order for ${object.product_id.name}
+% if object.price!=0.0:
+with price ${object.price}
+% endif
+% if object.note:
+and the note '${object.note}'
+% endif
+.
+<br></p><p style=""margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"">&nbsp;<span style=""font-family: inherit; font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial;""> 
+% if object.user_information.company_name:
+Address: ${object.user_information.company_name}
+% if object.user_information.street:
+in ${object.user_information.street}
+% endif
+% endif
+</span><br>Thanks,</p><p style=""margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"">${object.user_information.display_name}<br></p><p style=""margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;""><br></p><p style=""margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;""><br></p>","","base.user_root","2017-11-02 08:33:33","","False","lunch.field_lunch_order_line_display_name","${object.user_information.email}","","base.user_root","2017-11-22 11:43:20","LunchOrderLine","","base.ir_mail_server_localhost0","${object.display_name}","","","","","Customer ${object.user_information.company_name}: order ${object.product_id.name}","${object.supplier.email}",""
